@@ -79,6 +79,7 @@
   <%= render 'partials/form/field' do %>
     <%= f.label :resume, class: 'required' %>
     <%= f.file_field :resume %>
+    <p>Note: If you do not have a resume, just upload a document - you will be filtered out</p>
   <% end %>
 
   <% if @metadata.mlh %>
