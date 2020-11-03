@@ -67,7 +67,7 @@
   </header>
 
   <% @sections.each_with_index do |section, i| %>
-    <section class="flex flex-col items-center text-base sm:text-xl p-8 sm:p-16 md:p-20 <%= i % 2 == 0 ? 'bg-yellow text-blue' : 'bg-blue text-yellow' %>">
+    <section class="flex flex-col items-center text-base sm:text-xl p-8 sm:p-16 md:p-20 <%= i % 2 == 0 ? 'bg-blue text-white' : 'bg-black text-white' %>">
       <h2 class="text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
         <a id="<%= section.title.parameterize %>" class="pt-24 outline-none" href="#<%= section.title.parameterize %>">
           <%= section.title %>
