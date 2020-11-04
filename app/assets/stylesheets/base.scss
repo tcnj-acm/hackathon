@@ -7,7 +7,7 @@ body {
 }
 
 .required::after {
-  color: hsl(2, 64%, 58%);
+  color: hsl(0, 0%, 12%);
   content: ' *';
 }
 
