@@ -26,7 +26,9 @@ label, dt {
 
   background-image: url("https://i.imgur.com/2TicKe6.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  //background-size: cover;
+  //background-size: 1425px 897px; //proper size for desktop computer screen
+  background-size:  auto; //automatically adjusts background size 
 
 }
 
