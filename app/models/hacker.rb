@@ -8,13 +8,15 @@ class Hacker < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
 
   # Validation
+  # Added new address fields
   validates_presence_of :email, :first_name, :last_name, :level_of_study, :major,
                         :shirt_size, :dietary_restrictions, :date_of_birth,
-                        :gender, :phone_number, :school
+                        :gender, :phone_number,:address_one, :address_two, :city, :state:, :zip_code, :school
   validates_uniqueness_of :email
   validates_inclusion_of :level_of_study, in: ->(_) { Hacker.levels_of_study }
   validates_inclusion_of :major, in: ->(_) { Hacker.majors }
   validates_inclusion_of :shirt_size, in: ->(_) { Hacker.shirt_sizes }
+  validates_inclusion_of :state, in: ->(_) { Hacker.state }
   validates_documentness_of :resume
   validate do |hacker|
     # Validates that the MLH agreement is agreed to i necessary
@@ -188,6 +190,62 @@ class Hacker < ApplicationRecord
   def self.genders
     ['Female', 'Male', 'Non-binary', 'I prefer not to say']
   end
+  
+  ##
+  # Returns an array of permissible state names.
+  def self.state
+  [
+	'AL',
+	'AK',
+	'AZ',
+	'AR',
+	'CA',
+	'CO',
+	'CT',
+	'DE',
+	'FL',
+	'GA',
+	'HI',
+	'ID',
+	'IL',
+	'IN',
+	'IA',
+	'KS',
+	'KY',
+	'LA',
+	'ME',
+	'MD',
+	'MA',
+	'MI',
+	'MN',
+	'MS',
+	'MO',
+	'MT',
+	'NE',
+	'NV',
+	'NJ',
+	'NM',
+	'NY',
+	'NC',
+	'ND',
+	'OH',
+	'OK',
+	'OR',
+	'PA',
+	'RI',
+	'SC',
+	'SD',
+	'TN',
+	'TX',
+	'UT',
+	'VT',
+	'VA',
+	'WA',
+	'WV',
+	'WI',
+	'WY'
+	   ]
+  end
 
   ##
   # Returns true iff the hackathon has not exceeded its capacity as defined by
@@ -240,7 +298,7 @@ class Hacker < ApplicationRecord
   def self.to_csv
     attributes = %w[email first_name last_name level_of_study major
                     shirt_size dietary_restrictions special_needs
-                    date_of_birth gender phone_number school]
+                    date_of_birth gender phone_number address_one address_two city state zip_code school]
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
