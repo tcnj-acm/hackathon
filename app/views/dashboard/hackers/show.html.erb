@@ -30,6 +30,21 @@
 
     <dt>Phone Number</dt>
     <dd class="mb-4"><%= @hacker.phone_number %></dd>
+    
+    <dt>Address One</dt>
+    <dd class="mb-4"><%= @hacker.address_one %></dd>
+
+    <dt>Address Two</dt>
+    <dd class="mb-4"><%= @hacker.address_two.blank? ? 'None' : @hacker.address_two %></dd>
+
+    <dt>City</dt>
+    <dd class="mb-4"><%= @hacker.city %></dd>
+
+    <dt>State</dt>
+    <dd class="mb-4"><%= @hacker.state %></dd>
+
+    <dt>Zip Code</dt>
+    <dd class="mb-4"><%= @hacker.zip_code %></dd>
 
     <dt>School</dt>
     <dd class="mb-4"><%= @hacker.school %></dd>
