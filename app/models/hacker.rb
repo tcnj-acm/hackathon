@@ -11,7 +11,7 @@ class Hacker < ApplicationRecord
   # Added new address fields
   validates_presence_of :email, :first_name, :last_name, :level_of_study, :major,
                         :shirt_size, :dietary_restrictions, :date_of_birth,
-                        :gender, :phone_number,:address_one, :address_two, :city, :state:, :zip_code, :school
+                        :gender, :phone_number,:address_one, :address_two, :city, :state, :zip_code, :school
   validates_uniqueness_of :email
   validates_inclusion_of :level_of_study, in: ->(_) { Hacker.levels_of_study }
   validates_inclusion_of :major, in: ->(_) { Hacker.majors }
