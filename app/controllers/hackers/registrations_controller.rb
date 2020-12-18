@@ -19,11 +19,11 @@ class Hackers::RegistrationsController < Devise::RegistrationsController
 
   ##
   # Returns the query +params+ filtered for permissible sign up parameters.
-  # Added new address fields
+
   def sign_up_params
     p = params.require(:hacker).permit(*([:first_name, :last_name, :level_of_study, :major,
                                           :shirt_size, :dietary_restrictions, :special_needs,
-                                          :date_of_birth, :gender, :phone_number, :address_one, :address_two, :city, :state:, :zip_code, :school, :resume,
+                                          :date_of_birth, :gender, :phone_number, :school, :resume,
                                           Metadata.first.mlh ? :mlh_agreement : nil, :email, :password, :password_confirmation].compact))
     if p.has_key?(:mlh_agreement)
       p[:mlh_agreement] = p[:mlh_agreement] == 'I agree'
@@ -35,11 +35,11 @@ class Hackers::RegistrationsController < Devise::RegistrationsController
 
   ##
   # Returns the query +params+ filtered for permissible account update parameters.
-  # Added new address fields
+
   def account_update_params
     params.require(:hacker).permit(:first_name, :last_name, :level_of_study, :major,
                                    :shirt_size, :dietary_restrictions, :special_needs,
-                                   :date_of_birth, :gender, :phone_number,:address_one, :address_two, :city, :state:, :zip_code,:school, :resume,
+                                   :date_of_birth, :gender, :phone_number, :school, :resume,
                                    :email, :password, :password_confirmation, :current_password)
   end
 
