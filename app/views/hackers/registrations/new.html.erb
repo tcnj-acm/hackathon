@@ -31,31 +31,6 @@
     <%= f.text_field :last_name, class: textbox_classes %>
   <% end %>
 
- <%= render 'partials/form/field' do %>
-    <%= f.label :address_one, class: 'required' %>
-    <%= f.text_field :address_one, class: textbox_classes %>
-  <% end %>
-
- <%= render 'partials/form/field' do %>
-    <%= f.label :address_two %>
-    <%= f.text_field :address_two, class: textbox_classes %>
-  <% end %>
-
- <%= render 'partials/form/field' do %>
-    <%= f.label :city, class: 'required' %>
-    <%= f.text_field :city, class: textbox_classes %>
-  <% end %>
-
-  <%= render 'partials/form/field' do %>
-    <%= f.label :state, class: 'required' %>
-    <%= f.select :state, Hacker.state, { include_blank: true }, class: textbox_classes %>
-  <% end %>
-
- <%= render 'partials/form/field' do %>
-    <%= f.label :zip_code, class: 'required' %>
-    <%= f.text_field :zip_code, class: textbox_classes %>
-  <% end %>
-
   <%= render 'partials/form/field' do %>
     <%= f.label :level_of_study, class: 'required' %>
     <%= f.select :level_of_study, Hacker.levels_of_study, { include_blank: true }, class: textbox_classes %>

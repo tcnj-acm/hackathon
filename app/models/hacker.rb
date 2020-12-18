@@ -8,19 +8,13 @@ class Hacker < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
 
   # Validation
-  # Updated to include Address 1 & 2, City, State, and Zip Code 
-
-validates_presence_of :email, :first_name, :last_name, :level_of_study, 
-			:major,:shirt_size, :dietary_restrictions, 
-			:date_of_birth,:gender, :phone_number, 
-			:school, :address_one, :address_two, :city, 
-			:state, :zip_code
+  validates_presence_of :email, :first_name, :last_name, :level_of_study, :major,
+                        :shirt_size, :dietary_restrictions, :date_of_birth,
+                        :gender, :phone_number, :school
   validates_uniqueness_of :email
   validates_inclusion_of :level_of_study, in: ->(_) { Hacker.levels_of_study }
   validates_inclusion_of :major, in: ->(_) { Hacker.majors }
   validates_inclusion_of :shirt_size, in: ->(_) { Hacker.shirt_sizes }
-  # Added a drop down validation of state
-  validates_inclusion_of :state, in: ->(_) { Hacker.state }
   validates_documentness_of :resume
   validate do |hacker|
     # Validates that the MLH agreement is agreed to i necessary
@@ -45,11 +39,9 @@ validates_presence_of :email, :first_name, :last_name, :level_of_study,
   end
 
   # Transformation
-  # Added Address 1 & 2, City, State, and Zip Code fields
   text_writer :first_name, :last_name, :level_of_study, :major,
               :shirt_size, :dietary_restrictions, :special_needs,
-              :gender, :phone_number, :school, :address_one, 
-              :address_two, :city, :state, :zip_code
+              :gender, :phone_number, :school
 
   ##
   # Returns a list of permissible levels of study.
@@ -195,62 +187,6 @@ validates_presence_of :email, :first_name, :last_name, :level_of_study,
   # Returns an array of permissible genders.
   def self.genders
     ['Female', 'Male', 'Non-binary', 'I prefer not to say']
-  end
-
-  ##
-  # Returns an array of permissible state names.
-  def self.state
-    [
-	'AL',
-	'AK',
-	'AZ',
-	'AR',
-	'CA',
-	'CO',
-	'CT',
-	'DE',
-	'FL',
-	'GA',
-	'HI',
-	'ID',
-	'IL',
-	'IN',
-	'IA',
-	'KS',
-	'KY',
-	'LA',
-	'ME',
-	'MD',
-	'MA',
-	'MI',
-	'MN',
-	'MS',
-	'MO',
-	'MT',
-	'NE',
-	'NV',
-	'NJ',
-	'NM',
-	'NY',
-	'NC',
-	'ND',
-	'OH',
-	'OK',
-	'OR',
-	'PA',
-	'RI',
-	'SC',
-	'SD',
-	'TN',
-	'TX',
-	'UT',
-	'VT',
-	'VA',
-	'WA',
-	'WV',
-	'WI',
-	'WY'
-	]
   end
 
   ##
