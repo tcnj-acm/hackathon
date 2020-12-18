@@ -8,13 +8,16 @@ class Hacker < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
 
   # Validation
+
   validates_presence_of :email, :first_name, :last_name, :level_of_study, :major,
                         :shirt_size, :dietary_restrictions, :date_of_birth,
                         :gender, :phone_number, :school
+
   validates_uniqueness_of :email
   validates_inclusion_of :level_of_study, in: ->(_) { Hacker.levels_of_study }
   validates_inclusion_of :major, in: ->(_) { Hacker.majors }
   validates_inclusion_of :shirt_size, in: ->(_) { Hacker.shirt_sizes }
+
   validates_documentness_of :resume
   validate do |hacker|
     # Validates that the MLH agreement is agreed to i necessary
@@ -188,8 +191,9 @@ class Hacker < ApplicationRecord
   def self.genders
     ['Female', 'Male', 'Non-binary', 'I prefer not to say']
   end
-
+  
   ##
+
   # Returns true iff the hackathon has not exceeded its capacity as defined by
   # the +capacity+ attribute of the +Metadata+ class.
   def self.openings?
@@ -240,7 +244,7 @@ class Hacker < ApplicationRecord
   def self.to_csv
     attributes = %w[email first_name last_name level_of_study major
                     shirt_size dietary_restrictions special_needs
-                    date_of_birth gender phone_number school]
+                    date_of_birth gender phone_number address_one address_two city state zip_code school]
 
     CSV.generate(headers: true) do |csv|
       csv << attributes

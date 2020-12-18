@@ -19,6 +19,7 @@ class Hackers::RegistrationsController < Devise::RegistrationsController
 
   ##
   # Returns the query +params+ filtered for permissible sign up parameters.
+
   def sign_up_params
     p = params.require(:hacker).permit(*([:first_name, :last_name, :level_of_study, :major,
                                           :shirt_size, :dietary_restrictions, :special_needs,
@@ -34,6 +35,7 @@ class Hackers::RegistrationsController < Devise::RegistrationsController
 
   ##
   # Returns the query +params+ filtered for permissible account update parameters.
+
   def account_update_params
     params.require(:hacker).permit(:first_name, :last_name, :level_of_study, :major,
                                    :shirt_size, :dietary_restrictions, :special_needs,

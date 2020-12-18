@@ -77,6 +77,11 @@ ActiveRecord::Schema.define(version: 2019_12_19_161824) do
     t.date "date_of_birth", null: false
     t.string "gender", default: "", null: false
     t.string "phone_number", default: "", null: false
+    t.string "address_one", default: "", null: false
+    t.string "address_two", default: "", null: false
+    t.string "city", default: "", null: false
+    t.string "state", default: "", null: false
+    t.string "zip_code", default: "", null: false
     t.string "school", default: "", null: false
     t.boolean "mlh_agreement", default: false, null: false
     t.boolean "checked_in", default: false, null: false
