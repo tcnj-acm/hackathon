@@ -70,11 +70,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_161824) do
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "level_of_study", default: "", null: false
-    t.string "address_one", default: "", null: false
-    t.string "address_two", default: "", null: false
-    t.string "city", default: "", null: false
-    t.string "state", default: "", null: false
-    t.string "zip_code", default: "", null: false
     t.string "major", default: "", null: false
     t.string "shirt_size", default: "", null: false
     t.string "dietary_restrictions", default: "", null: false
