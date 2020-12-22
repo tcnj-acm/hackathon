@@ -29,26 +29,26 @@ module HomeHelper
   def address
     text = ''
 
-    unless @metadata.address_one.blank?
-      text += escape_once(@metadata.address_one)
+    unless @metadata.event_address_one.blank?
+      text += escape_once(@metadata.event_address_one)
 
-      unless @metadata.address_two.blank?
-        text += "<br>#{escape_once(@metadata.address_two)}"
+      unless @metadata.event_address_two.blank?
+        text += "<br>#{escape_once(@metadata.event_address_two)}"
       end
     end
 
-    unless @metadata.city.blank?
+    unless @metadata.event_city.blank?
       unless text.blank?
         text += '<br>'
       end
 
-      text += escape_once(@metadata.city)
+      text += escape_once(@metadata.event_city)
 
-      unless @metadata.state.blank?
-        text += ", #{escape_once(@metadata.state)}"
+      unless @metadata.state.event_blank?
+        text += ", #{escape_once(@metadata.event_state)}"
 
-        unless @metadata.zip_code.blank?
-          text += " #{escape_once(@metadata.zip_code)}"
+        unless @metadata.event_zip_code.blank?
+          text += " #{escape_once(@metadata.event_zip_code)}"
         end
       end
 
