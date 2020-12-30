@@ -93,7 +93,7 @@
 
   <%= render 'partials/form/field' do %>
     <%= f.label :state, class: 'required' %>
-    <%= f.select :state, Hacker.state, { include_blank: true }, class: textbox_classes %>
+    <%= f.select :state, Hacker.states, { include_blank: true }, class: textbox_classes %>
   <% end %>
 
  <%= render 'partials/form/field' do %>
