@@ -53,27 +53,27 @@
 
   <%= render 'partials/form/field' do %>
     <%= f.label :address_one %>
-    <%= f.text_field :address_one, class: textbox_classes %>
+    <%= f.text_field :event_address_one, class: textbox_classes %>
   <% end %>
 
   <%= render 'partials/form/field' do %>
     <%= f.label :address_two %>
-    <%= f.text_field :address_two, class: textbox_classes %>
+    <%= f.text_field :event_address_two, class: textbox_classes %>
   <% end %>
 
   <%= render 'partials/form/field' do %>
     <%= f.label :city %>
-    <%= f.text_field :city, class: textbox_classes %>
+    <%= f.text_field :event_city, class: textbox_classes %>
   <% end %>
 
   <%= render 'partials/form/field' do %>
     <%= f.label :state %>
-    <%= f.text_field :state, class: textbox_classes %>
+    <%= f.text_field :event_state, class: textbox_classes %>
   <% end %>
 
   <%= render 'partials/form/field' do %>
     <%= f.label :zip_code %>
-    <%= f.text_field :zip_code, class: textbox_classes %>
+    <%= f.text_field :event_zip_code, class: textbox_classes %>
   <% end %>
 
   <%= render 'partials/form/field', direction: 'row' do %>

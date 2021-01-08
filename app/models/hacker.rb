@@ -11,12 +11,14 @@ class Hacker < ApplicationRecord
 
   validates_presence_of :email, :first_name, :last_name, :level_of_study, :major,
                         :shirt_size, :dietary_restrictions, :date_of_birth,
+                        :address_one, :city, :state, :zip_code,
                         :gender, :phone_number, :school
 
   validates_uniqueness_of :email
   validates_inclusion_of :level_of_study, in: ->(_) { Hacker.levels_of_study }
   validates_inclusion_of :major, in: ->(_) { Hacker.majors }
   validates_inclusion_of :shirt_size, in: ->(_) { Hacker.shirt_sizes }
+  validates_inclusion_of :state, in: ->(_) { Hacker.states }
 
   validates_documentness_of :resume
   validate do |hacker|
@@ -193,7 +195,63 @@ class Hacker < ApplicationRecord
   end
   
   ##
+  # Returns an array of acceptable state options
+  def self.states
+    [
+      'Alabama',
+      'Alaska',
+      'Arizona',
+      'Arkansas',
+      'California',
+      'Colorado',
+      'Connecticut',
+      'Delaware',
+      'Florida',
+      'Georgia',
+      'Hawaii',
+      'Idaho',
+      'Illinois',
+      'Indiana',
+      'Iowa',
+      'Kansas',
+      'Kentucky',
+      'Louisiana',
+      'Maine',
+      'Maryland',
+      'Massachusetts',
+      'Michigan',
+      'Minnesota',
+      'Mississipi',
+      'Missouri',
+      'Montana',
+      'Nebraska',
+      'Nevada',
+      'New Hampshire',
+      'New Jersey',
+      'New Mexico',
+      'New York',
+      'North Carolina',
+      'North Dakota',
+      'Ohio',
+      'Oklahoma',
+      'Oregon',
+      'Pennsylvania',
+      'Rhode Island',
+      'South Carolina',
+      'South Dakota',
+      'Tennessee',
+      'Texas',
+      'Utah',
+      'Vermont',
+      'Virginia',
+      'Washington',
+      'West Virginia',
+      'Wisconsin',
+      'Wyoming'
+      ]
+    end
 
+  ##
   # Returns true iff the hackathon has not exceeded its capacity as defined by
   # the +capacity+ attribute of the +Metadata+ class.
   def self.openings?

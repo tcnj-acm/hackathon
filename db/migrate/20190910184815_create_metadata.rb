@@ -14,11 +14,11 @@ class CreateMetadata < ActiveRecord::Migration[6.0]
       t.time :start_time, null: true
       t.date :end_date, null: true
       t.time :end_time, null: true
-      t.string :address_one, null: true
-      t.string :address_two, null: true
-      t.string :city, null: true
-      t.string :state, null: true
-      t.string :zip_code, null: true
+      t.string :event_address_one, null: true
+      t.string :event_address_two, null: true
+      t.string :event_city, null: true
+      t.string :event_state, null: true
+      t.string :event_zip_code, null: true
       t.boolean :mlh, null: false, default: false
       t.string :mlh_banner_code, null: false, default: ''
       t.boolean :registration_open, null: false, default: false

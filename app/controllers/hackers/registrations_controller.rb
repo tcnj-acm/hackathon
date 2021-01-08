@@ -24,6 +24,7 @@ class Hackers::RegistrationsController < Devise::RegistrationsController
     p = params.require(:hacker).permit(*([:first_name, :last_name, :level_of_study, :major,
                                           :shirt_size, :dietary_restrictions, :special_needs,
                                           :date_of_birth, :gender, :phone_number, :school, :resume,
+                                          :address_one, :address_two, :city, :state, :zip_code,
                                           Metadata.first.mlh ? :mlh_agreement : nil, :email, :password, :password_confirmation].compact))
     if p.has_key?(:mlh_agreement)
       p[:mlh_agreement] = p[:mlh_agreement] == 'I agree'
@@ -40,6 +41,7 @@ class Hackers::RegistrationsController < Devise::RegistrationsController
     params.require(:hacker).permit(:first_name, :last_name, :level_of_study, :major,
                                    :shirt_size, :dietary_restrictions, :special_needs,
                                    :date_of_birth, :gender, :phone_number, :school, :resume,
+                                   :address_one, :address_two, :city, :state, :zip_code,
                                    :email, :password, :password_confirmation, :current_password)
   end
 

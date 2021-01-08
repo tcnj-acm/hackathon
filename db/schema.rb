@@ -113,11 +113,11 @@ ActiveRecord::Schema.define(version: 2019_12_19_161824) do
     t.time "start_time"
     t.date "end_date"
     t.time "end_time"
-    t.string "address_one"
-    t.string "address_two"
-    t.string "city"
-    t.string "state"
-    t.string "zip_code"
+    t.string "event_address_one"
+    t.string "event_address_two"
+    t.string "event_city"
+    t.string "event_state"
+    t.string "event_zip_code"
     t.boolean "mlh", default: false, null: false
     t.string "mlh_banner_code", default: "", null: false
     t.boolean "registration_open", default: false, null: false
