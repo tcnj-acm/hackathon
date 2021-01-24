@@ -30,7 +30,7 @@ module HomeHelper
     text = ''
 
     unless @metadata.event_address_one.blank?
-      text += escape_once(@metadata.event_address_one)
+      text += "<br>#{escape_once(@metadata.event_address_one)}"
 
       unless @metadata.event_address_two.blank?
         text += "<br>#{escape_once(@metadata.event_address_two)}"
