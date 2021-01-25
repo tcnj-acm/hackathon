@@ -6,6 +6,6 @@ class HackerMailer < ApplicationMailer
   # and the given +content+ in the email body.
   def email
     @content = params[:content]
-    mail(to: params[:email], subject: params[:subject])
+    mail(to: params[:email], from: Metadata.first.email, subject: params[:subject])
   end
 end
